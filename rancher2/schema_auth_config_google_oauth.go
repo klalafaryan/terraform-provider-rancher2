@@ -14,7 +14,7 @@ func authConfigGoogleOauthFields() map[string]*schema.Schema {
 			Type:     schema.TypeString,
 			Required: true,
 		},
-		"domain": {
+		"hostname": {
 			Type:     schema.TypeString,
 			Required: true,
 		},
@@ -23,13 +23,13 @@ func authConfigGoogleOauthFields() map[string]*schema.Schema {
 			Optional: true,
 			Default:  false,
 		},
-		"oauth_credentials": {
+		"oauth_credential": {
 			Type:      schema.TypeString,
 			Required:  true,
 			Sensitive: true,
 			StateFunc: TrimSpace,
 		},
-		"service_account_credentials": {
+		"service_account_credential": {
 			Type:      schema.TypeString,
 			Required:  true,
 			Sensitive: true,

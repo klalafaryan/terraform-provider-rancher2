@@ -32,10 +32,10 @@ func flattenAuthConfigGoogleOauth(d *schema.ResourceData, in *managementClient.G
 	}
 
 	d.Set("admin_email", in.AdminEmail)
-	d.Set("domain", in.Hostname)
+	d.Set("hostname", in.Hostname)
 	d.Set("nested_group_membership_enabled", in.NestedGroupMembershipEnabled)
-	d.Set("oauth_credentials", in.OauthCredential)
-	d.Set("service_account_credentials", in.ServiceAccountCredential)
+	d.Set("oauth_credential", in.OauthCredential)
+	d.Set("service_account_credential", in.ServiceAccountCredential)
 
 	return nil
 }
@@ -79,7 +79,7 @@ func expandAuthConfigGoogleOauth(in *schema.ResourceData) (*managementClient.Goo
 		obj.AdminEmail = v
 	}
 
-	if v, ok := in.Get("domain").(string); ok && len(v) > 0 {
+	if v, ok := in.Get("hostname").(string); ok && len(v) > 0 {
 		obj.Hostname = v
 	}
 
@@ -87,11 +87,11 @@ func expandAuthConfigGoogleOauth(in *schema.ResourceData) (*managementClient.Goo
 		obj.NestedGroupMembershipEnabled = v
 	}
 
-	if v, ok := in.Get("oauth_credentials").(string); ok && len(v) > 0 {
+	if v, ok := in.Get("oauth_credential").(string); ok && len(v) > 0 {
 		obj.OauthCredential = v
 	}
 
-	if v, ok := in.Get("service_account_credentials").(string); ok && len(v) > 0 {
+	if v, ok := in.Get("service_account_credential").(string); ok && len(v) > 0 {
 		obj.ServiceAccountCredential = v
 	}
 

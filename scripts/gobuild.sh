@@ -6,7 +6,7 @@ source $(dirname $0)/version.sh
 
 echo "==> Building code binaries version ${VERSION} ..."
 
-declare -A OS_ARCH_ARG
+declare -a OS_ARCH_ARG
 
 OS_PLATFORM_ARG=(linux windows darwin freebsd openbsd)
 OS_ARCH_ARG[linux]="amd64 arm arm64"
